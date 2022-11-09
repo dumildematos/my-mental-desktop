@@ -7,3 +7,7 @@ interface Window {
   process: any;
   require: any;
 }
+
+declare var tinymce: any;
+
+declare var echarts: any;

@@ -7,4 +7,8 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class CoreModule { }
+export class CoreModule {
+  static forRoot(): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+    throw new Error('Method not implemented.');
+  }
+}

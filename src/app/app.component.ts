@@ -1,28 +1,23 @@
-import { Component } from '@angular/core';
-import { ElectronService } from './core/services';
-import { TranslateService } from '@ngx-translate/core';
-import { APP_CONFIG } from '../environments/environment';
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+ import { Component, OnInit } from '@angular/core';
+ import { AnalyticsService } from './@core/utils/analytics.service';
+ import { SeoService } from './@core/utils/seo.service';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
-export class AppComponent {
-  constructor(
-    private electronService: ElectronService,
-    private translate: TranslateService
-  ) {
-    this.translate.setDefaultLang('en');
-    console.log('APP_CONFIG', APP_CONFIG);
+ @Component({
+   selector: 'app-root',
+   template: '<router-outlet></router-outlet>',
+ })
+ export class AppComponent implements OnInit {
 
-    if (electronService.isElectron) {
-      console.log(process.env);
-      console.log('Run in electron');
-      console.log('Electron ipcRenderer', this.electronService.ipcRenderer);
-      console.log('NodeJS childProcess', this.electronService.childProcess);
-    } else {
-      console.log('Run in browser');
-    }
-  }
-}
+   constructor(private analytics: AnalyticsService, private seoService: SeoService) {
+   }
+
+   ngOnInit(): void {
+     this.analytics.trackPageViews();
+     this.seoService.trackCanonicalChanges();
+   }
+ }
