@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
+    "analytics": false,
     "defaultCollection": "@angular-eslint/schematics"
   },
   "version": 1,
@@ -13,12 +14,8 @@
       "schematics": {
         "@schematics/angular:application": {
           "strict": true
-        },
-        "@schematics/angular:component": {
-          "style": "scss"
         }
       },
-      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
@@ -28,7 +25,6 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -59,22 +55,6 @@
                 }
               ]
             },
-            "production": {
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            },
             "web": {
               "optimization": false,
               "outputHashing": "none",
@@ -91,7 +71,7 @@
                 }
               ]
             },
-            "web-production": {
+            "production": {
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -103,7 +83,7 @@
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.web.prod.ts"
+                  "with": "src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -118,14 +98,11 @@
             "dev": {
               "browserTarget": "angular-electron:build:dev"
             },
-            "production": {
-              "browserTarget": "angular-electron:build:production"
-            },
             "web": {
               "browserTarget": "angular-electron:build:web"
             },
-            "web-production": {
-              "browserTarget": "angular-electron:build:web-production"
+            "production": {
+              "browserTarget": "angular-electron:build:production"
             }
           }
         },
@@ -142,13 +119,11 @@
             "polyfills": "src/polyfills-test.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "inlineStyleLanguage": "scss",
             "scripts": [],
             "styles": [
               "src/styles.scss"
             ],
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "customWebpackConfig": {
@@ -183,5 +158,14 @@
       }
     }
   },
-  "defaultProject": "angular-electron"
+  "defaultProject": "angular-electron",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "app",
+      "style": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app"
+    }
+  }
 }

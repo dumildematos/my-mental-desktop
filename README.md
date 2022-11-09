@@ -14,12 +14,12 @@
 
 # Introduction
 
-Bootstrap and package your project with Angular 14 and Electron 21 (Typescript + SASS + Hot Reload) for creating Desktop applications.
+Bootstrap and package your project with Angular 12 and Electron 16 (Typescript + SASS + Hot Reload) for creating Desktop applications.
 
 Currently runs with:
 
-- Angular v14.2.6
-- Electron v21.1.1
+- Angular v12.1.2
+- Electron v16.0.0
 
 With this sample, you can:
 
@@ -75,10 +75,10 @@ You can disable "Developer Tools" by commenting `win.webContents.openDevTools();
 
 ## Project structure
 
-| Folder | Description                                      |
-|--------|--------------------------------------------------|
-| app    | Electron main process folder (NodeJS)            |
-| src    | Electron renderer process folder (Web / Angular) |
+|Folder|Description|
+| ---- | ---- |
+| app | Electron main process folder (NodeJS) |
+| src | Electron renderer process folder (Web / Angular) |
 
 ## How to import 3rd party libraries
 
@@ -104,12 +104,13 @@ Maybe you only want to execute the application in the browser with hot reload? J
 
 ## Included Commands
 
-| Command                  | Description                                                                                           |
-|--------------------------|-------------------------------------------------------------------------------------------------------|
-| `npm run ng:serve`       | Execute the app in the web browser (DEV mode)                                                         |
-| `npm run web:build`      | Build the app that can be used directly in the web browser. Your built files are in the /dist folder. |
-| `npm run electron:local` | Builds your application and start electron locally                                                    |
-| `npm run electron:build` | Builds your application and creates an app consumable based on your operating system                  |
+|Command|Description|
+| ---- | ---- |
+|`npm run ng:serve`| Execute the app in the browser |
+|`npm run build`| Build the app. Your built files are in the /dist folder. |
+|`npm run build:prod`| Build the app with Angular aot. Your built files are in the /dist folder. |
+|`npm run electron:local`| Builds your application and start electron
+|`npm run electron:build`| Builds your application and creates an app consumable based on your operating system |
 
 **Your application is optimised. Only /dist folder and NodeJS dependencies are included in the final bundle.**
 
@@ -123,9 +124,9 @@ Then use your library by importing it in `app/main.ts` file. Quite simple, isn't
 
 E2E Test scripts can be found in `e2e` folder.
 
-| Command       | Description               |
-|---------------|---------------------------|
-| `npm run e2e` | Execute end to end tests  |
+|Command|Description|
+| ---- | ---- |
+|`npm run e2e`| Execute end to end tests |
 
 Note: To make it work behind a proxy, you can add this proxy exception in your terminal  
 `export {no_proxy,NO_PROXY}="127.0.0.1,localhost"`
@@ -150,13 +151,11 @@ Please note that Hot reload is only available in Renderer process.
 - Angular 9 & Electron 7 : Branch [angular9](https://github.com/maximegris/angular-electron/tree/angular9)
 - Angular 10 & Electron 9 : Branch [angular10](https://github.com/maximegris/angular-electron/tree/angular10)
 - Angular 11 & Electron 12 : Branch [angular11](https://github.com/maximegris/angular-electron/tree/angular11)
-- Angular 12 & Electron 16 : Branch [angular12](https://github.com/maximegris/angular-electron/tree/angular12)
-- Angular 13 & Electron 18 : Branch [angular13](https://github.com/maximegris/angular-electron/tree/angular13)
-- Angular 14 & Electron 21 : (main)
+- Angular 12 & Electron 16 : (master)
 
 [maintained-badge]: https://img.shields.io/badge/maintained-yes-brightgreen
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[license]: https://github.com/maximegris/angular-electron/blob/main/LICENSE.md
+[license]: https://github.com/maximegris/angular-electron/blob/master/LICENSE.md
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-red.svg
 [prs]: http://makeapullrequest.com
 

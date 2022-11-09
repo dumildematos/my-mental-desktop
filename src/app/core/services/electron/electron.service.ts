@@ -15,26 +15,18 @@ export class ElectronService {
   childProcess: typeof childProcess;
   fs: typeof fs;
 
+  get isElectron(): boolean {
+    return !!(window && window.process && window.process.type);
+  }
+
   constructor() {
     // Conditional imports
     if (this.isElectron) {
       this.ipcRenderer = window.require('electron').ipcRenderer;
       this.webFrame = window.require('electron').webFrame;
 
-      this.fs = window.require('fs');
-
       this.childProcess = window.require('child_process');
-      this.childProcess.exec('node -v', (error, stdout, stderr) => {
-        if (error) {
-          console.error(`error: ${error.message}`);
-          return;
-        }
-        if (stderr) {
-          console.error(`stderr: ${stderr}`);
-          return;
-        }
-        console.log(`stdout:\n${stdout}`);
-      });
+      this.fs = window.require('fs');
 
       // Notes :
       // * A NodeJS's dependency imported with 'window.require' MUST BE present in `dependencies` of both `app/package.json`
@@ -48,9 +40,5 @@ export class ElectronService {
       // ipcRenderer.invoke can serve many common use cases.
       // https://www.electronjs.org/docs/latest/api/ipc-renderer#ipcrendererinvokechannel-args
     }
-  }
-
-  get isElectron(): boolean {
-    return !!(window && window.process && window.process.type);
   }
 }
