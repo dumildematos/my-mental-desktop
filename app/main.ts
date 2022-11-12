@@ -14,10 +14,18 @@ function createWindow(): BrowserWindow {
 
   // Create the browser window.
   win = new BrowserWindow({
-    x: 0,
-    y: 0,
-    width: size.width,
-    height: size.height,
+    // x: 0,
+    // y: 0,
+    // width: size.width,
+    // height: size.height,
+    // show: false,
+    width: 1184,
+    height: 713,
+    minWidth: 1184,
+    minHeight: 713,
+    frame: false,
+    titleBarStyle: 'hidden',
+    // backgroundColor: '#4c5fe1',
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: (serve) ? true : false,

@@ -13,8 +13,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HomeModule } from './home/home.module';
-import { DetailModule } from './detail/detail.module';
+// import { HomeModule } from './home/home.module';
+// import { DetailModule } from './detail/detail.module';
 
 import { AppComponent } from './app.component';
 import { NbChatModule, NbDatepickerModule, NbDialogModule, NbMenuModule, NbSidebarModule, NbToastrModule, NbWindowModule } from '@nebular/theme';
@@ -33,8 +33,8 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>  new Transl
     BrowserAnimationsModule,
     // CoreModule,
     // SharedModule,
-    HomeModule,
-    DetailModule,
+    // HomeModule,
+    // DetailModule,
     AppRoutingModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),

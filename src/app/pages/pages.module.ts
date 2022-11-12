@@ -1,3 +1,4 @@
+import { IotDashboardModule } from './iot-dashboard/iot-dashboard.module';
 import { NgModule } from '@angular/core';
 import { NbMenuModule } from '@nebular/theme';
 
@@ -15,6 +16,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
     NbMenuModule,
     DashboardModule,
     ECommerceModule,
+    IotDashboardModule,
     MiscellaneousModule,
   ],
   declarations: [
