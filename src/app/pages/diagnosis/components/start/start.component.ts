@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/member-ordering */
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NbDialogService, NbThemeService } from '@nebular/theme';
+import { Component, OnInit } from '@angular/core';
+import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
-import { SolarData } from '../../@core/data/solar';
-import { NewDiagnosisModalComponent } from './new-diagnosis-modal/new-diagnosis-modal.component';
-
+import { SolarData } from '../../../../@core/data/solar';
 
 interface CardSettings {
   title: string;
@@ -13,11 +11,13 @@ interface CardSettings {
 }
 
 @Component({
-  selector: 'app-iot-dashboard',
-  templateUrl: './iot-dashboard.component.html',
-  styleUrls: ['./iot-dashboard.component.scss']
+  selector: 'app-start',
+  templateUrl: './start.component.html',
+  styleUrls: ['./start.component.scss']
 })
-export class IotDashboardComponent implements OnDestroy {
+
+
+export class StartComponent implements OnInit {
 
   private alive = true;
 
@@ -26,6 +26,12 @@ export class IotDashboardComponent implements OnDestroy {
     title: 'Light',
     iconClass: 'nb-lightbulb',
     type: 'primary',
+  };
+  rorschachModule: CardSettings = {
+    title: 'Rorschach',
+    iconClass: 'nb-lightbulb',
+    type: 'primary',
+
   };
   rollerShadesCard: CardSettings = {
     title: 'Roller Shades',
@@ -46,10 +52,10 @@ export class IotDashboardComponent implements OnDestroy {
   statusCards: string;
 
   commonStatusCardsSet: CardSettings[] = [
-    this.lightCard,
+    this.rorschachModule,
     this.rollerShadesCard,
-    this.wirelessAudioCard,
-    this.coffeeMakerCard,
+    // this.wirelessAudioCard,
+    // this.coffeeMakerCard,
   ];
 
   statusCardsByThemes: {
@@ -62,7 +68,7 @@ export class IotDashboardComponent implements OnDestroy {
     cosmic: this.commonStatusCardsSet,
     corporate: [
       {
-        ...this.lightCard,
+        ...this.rorschachModule,
         type: 'warning',
       },
       {
@@ -82,8 +88,7 @@ export class IotDashboardComponent implements OnDestroy {
   };
 
   constructor(private themeService: NbThemeService,
-              private solarService: SolarData,
-              private dialogService: NbDialogService) {
+              private solarService: SolarData) {
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {
@@ -96,17 +101,7 @@ export class IotDashboardComponent implements OnDestroy {
         this.solarValue = data;
       });
   }
-
-  ngOnDestroy() {
-    this.alive = false;
-  }
-
-  openModal() {
-    this.dialogService.open(NewDiagnosisModalComponent, {
-      context: {
-        title: 'This is a title passed to the dialog component',
-      },
-    });
+  ngOnInit(): void {
   }
 
 }

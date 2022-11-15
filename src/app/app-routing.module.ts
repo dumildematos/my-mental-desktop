@@ -16,36 +16,56 @@ export const routes: Routes = [
       .then(m => m.PagesModule),
   },
   {
+    path: 'diagnosis',
+    loadChildren: () => import('./pages/diagnosis/diagnosis.module')
+      .then(m => m.DiagnosisModule),
+  },
+  {
     path: 'auth',
+    // canActivate: [AuthLoggedIn],
     component: NbAuthComponent,
     children: [
       {
         path: '',
-        component: NbLoginComponent,
+        loadChildren: () => import('./pages/custom-login/custom-login.module').then(m => m.CustomLoginModule)
       },
       {
         path: 'login',
-        component: NbLoginComponent,
-      },
-      {
-        path: 'register',
-        component: NbRegisterComponent,
-      },
-      {
-        path: 'logout',
-        component: NbLogoutComponent,
-      },
-      {
-        path: 'request-password',
-        component: NbRequestPasswordComponent,
-      },
-      {
-        path: 'reset-password',
-        component: NbResetPasswordComponent,
-      },
+        loadChildren: () => import('./pages/custom-login/custom-login.module').then(m => m.CustomLoginModule),
+      }
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  // {
+  //   path: 'auth',
+  //   component: NbAuthComponent,
+  //   children: [
+  //     {
+  //       path: '',
+  //       component: NbLoginComponent,
+  //     },
+  //     {
+  //       path: 'login',
+  //       component: NbLoginComponent,
+  //     },
+  //     {
+  //       path: 'register',
+  //       component: NbRegisterComponent,
+  //     },
+  //     {
+  //       path: 'logout',
+  //       component: NbLogoutComponent,
+  //     },
+  //     {
+  //       path: 'request-password',
+  //       component: NbRequestPasswordComponent,
+  //     },
+  //     {
+  //       path: 'reset-password',
+  //       component: NbResetPasswordComponent,
+  //     },
+  //   ],
+  // },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: '**', redirectTo: 'pages' },
 ];
 

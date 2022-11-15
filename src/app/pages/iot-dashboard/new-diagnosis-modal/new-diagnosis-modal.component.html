@@ -1,0 +1,67 @@
+<nb-card class="dialog-create">
+  <nb-card-header>{{ title }}</nb-card-header>
+  <nb-card-body>
+
+    <nb-stepper orientation="horizontal">
+      <nb-step [label]="labelOne">
+        <ng-template #labelOne>First step</ng-template>
+        <h3>Putting on the helmet #1</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, ut pariatur rem sit ipsa sed quia. Repellendus dignissimos consequatur minus, magni eum cumque sequi. Officiis ea quisquam cupiditate eos recusandae.
+        </p>
+        <div class="d-flex justify-content-center">
+          <img src="assets/images/helmet.gif" width="60" alt="">
+        </div>
+        <div class="d-flex justify-content-end">
+          <button nbButton disabled nbStepperNext class="mr-3">prev</button>
+          <button nbButton nbStepperNext>next</button>
+        </div>
+      </nb-step>
+      <nb-step [label]="labelTwo">
+        <ng-template #labelTwo>Second step</ng-template>
+        <h3>Test connection #2</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, ut pariatur rem sit ipsa sed quia. Repellendus dignissimos consequatur minus, magni eum cumque sequi. Officiis ea quisquam cupiditate eos recusandae.
+        </p>
+        <div class="d-flex justify-content-center">
+          <img src="assets/images/cpu.gif" width="60" alt="">
+        </div>
+        <div class="d-flex justify-content-end">
+          <button nbButton nbStepperPrevious class="mr-3">prev</button>
+          <button nbButton nbStepperNext>next</button>
+        </div>
+      </nb-step>
+      <nb-step label="Third step">
+        <h3>Features #3</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, ut pariatur rem sit ipsa sed quia. Repellendus dignissimos consequatur minus, magni eum cumque sequi. Officiis ea quisquam cupiditate eos recusandae.
+        </p>
+        <div class="d-flex justify-content-center">
+          <img src="assets/images/shipping.gif" width="60" alt="">
+        </div>
+        <div class="d-flex justify-content-end">
+          <button nbButton nbStepperPrevious class="mr-3">prev</button>
+          <button nbButton nbStepperNext>next</button>
+        </div>
+      </nb-step>
+      <nb-step [label]="labelFour">
+        <ng-template #labelFour>Fourth step</ng-template>
+        <h3>Goals #4</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, ut pariatur rem sit ipsa sed quia. Repellendus dignissimos consequatur minus, magni eum cumque sequi. Officiis ea quisquam cupiditate eos recusandae.
+        </p>
+        <div class="d-flex justify-content-center">
+          <img src="assets/images/target.gif" width="60" alt="">
+        </div>
+        <div class="d-flex justify-content-end">
+          <button nbButton nbStepperPrevious class="mr-3">prev</button>
+          <button nbButton nbStepperNext hero status="primary" (click)="startDiagnosis()">Start</button>
+        </div>
+      </nb-step>
+    </nb-stepper>
+
+  </nb-card-body>
+  <!-- <nb-card-footer>
+    <button nbButton hero status="primary" (click)="dismiss()">Dismiss Dialog</button>
+  </nb-card-footer> -->
+</nb-card>

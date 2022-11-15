@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between">
+
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+          </ol>
+        </nav>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xxxl-3 col-md-6" *ngFor="let statusCard of statusCards">
+      <app-feature-card [title]="statusCard.title" [type]="statusCard.type">
+        <i [ngClass]="statusCard.iconClass"></i>
+      </app-feature-card>
+    </div>
+  </div>
+</div>
+
+
+

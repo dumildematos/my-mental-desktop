@@ -1,6 +1,6 @@
+import { NewDiagnosisModalComponent } from './new-diagnosis-modal/new-diagnosis-modal.component';
 import { NgModule } from '@angular/core';
 
-import { IotDashboardRoutingModule } from './iot-dashboard-routing.module';
 import { IotDashboardComponent } from './iot-dashboard.component';
 import {
   NbActionsModule,
@@ -12,6 +12,13 @@ import {
   NbSelectModule,
   NbListModule,
   NbIconModule,
+  NbDialogModule,
+  NbWindowModule,
+  NbCheckboxModule,
+  NbPopoverModule,
+  NbInputModule,
+  NbTooltipModule,
+  NbStepperModule,
 } from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
 
@@ -52,14 +59,13 @@ import { FormsModule } from '@angular/forms';
     SolarComponent,
     TrafficComponent,
     TrafficChartComponent,
+    NewDiagnosisModalComponent
   ],
   imports: [
-    IotDashboardRoutingModule,
     FormsModule,
     ThemeModule,
     NbCardModule,
     NbUserModule,
-    NbButtonModule,
     NbTabsetModule,
     NbActionsModule,
     NbRadioModule,
@@ -68,6 +74,13 @@ import { FormsModule } from '@angular/forms';
     NbIconModule,
     NbButtonModule,
     NgxEchartsModule,
+    NbDialogModule.forChild(),
+    NbWindowModule.forChild(),
+    NbCheckboxModule,
+    NbPopoverModule,
+    NbInputModule,
+    NbTooltipModule,
+    NbStepperModule
   ]
 })
 export class IotDashboardModule { }

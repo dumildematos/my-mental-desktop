@@ -1,0 +1,9 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  nb-card.dialog-create {
+    max-width: 700px;
+    width: 700px;
+    max-height: 500px;
+  }
+}
